@@ -14,8 +14,8 @@ openai.api_key = os.getenv("OPENAI_API_KEY")  # Load your OpenAI API key from an
 @app.route('/generate-recipe', methods=['POST'])
 def generate_recipe():
     data = request.json
-    protein_goal = data.get("protein_goal")
-    ingredients = data.get("ingredients")
+    protein_goal = data.get("protein_goal",'')
+    ingredients = data.get("ingredients",[])
     
     prompt = f"Create a recipe with {protein_goal} grams of protein using these ingredients: {ingredients}"
 

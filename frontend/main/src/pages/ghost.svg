@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 182.83 221.58">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 2.5px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke: #231f20;
+      }
+
+      .cls-1, .cls-4 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-2 {
+        stroke-miterlimit: 10;
+        stroke-width: 1px;
+      }
+
+      .cls-3 {
+        stroke-miterlimit: 10;
+        stroke-width: 1px;
+      }
+
+      .cls-4 {
+        fill: none;
+        stroke-width: 2px;
+      }
+
+      .cls-5 {
+        fill: #f8c2d9;
+      }
+
+      .cls-5, .cls-6 {
+        stroke-width: 0px;
+      }
+
+      .cls-6 {
+        fill: #231f20;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g id="Layer_14" data-name="Layer 14">
+      <path class="cls-1" d="M180.44,206.45c-3.61,5.19-14.44-1.71-28.83,3.79-4.98,1.9-3.77,2.03-8.13,4.31-10.48,5.47-16.48-3.85-30.81.56-2.08.64-6.9,1.45-13.75,3.79-11.47,3.93-15.46-4.22-31.59-3.36-10.2.55-12.57,4.02-17.15,4.69-1.25.18-2.65.11-4.66-.24-11.17-1.95-15.99-9.79-24.61-9.28-5.78.35-8.5,4.17-12.32,2.14-2.41-1.28-3.94-4.2-4.3-4.89-1.27-2.41-1.59-4.66-1.68-6.01-3.69-50.66.78-90.62,5.6-117.7,4.28-24.05,8.78-35.57,15.94-45.89,3.81-5.49,23.01-33.38,57.97-36.81,3.95-.39,26.92-2.31,48.51,12.14,24.29,16.25,31.14,42.71,38.53,71.24,10.55,40.77,10.35,90.16,11.94,104.74.13,1.19.3,3.01.37,5.22.21,6.49.24,9.74-1.03,11.57Z"/>
+    </g>
+    <g id="Layer_3" data-name="Layer 3">
+      <ellipse class="cls-6" cx="52.51" cy="66.45" rx="28.69" ry="20.62" transform="translate(-29.24 88.56) rotate(-66.82)"/>
+      <ellipse class="cls-6" cx="124.9" cy="66.55" rx="20.62" ry="28.69" transform="translate(-16.11 54.54) rotate(-23.18)"/>
+    </g>
+    <g id="Layer_2-2" data-name="Layer 2">
+      <ellipse class="cls-2" cx="54.29" cy="63.73" rx="22.02" ry="16.65" transform="translate(-24.57 91.85) rotate(-69.2)"/>
+      <ellipse class="cls-3" cx="123.12" cy="63.84" rx="16.65" ry="22.02" transform="translate(-14.65 47.88) rotate(-20.8)"/>
+    </g>
+    <g id="Layer_12" data-name="Layer 12">
+      <path class="cls-4" d="M98.71,97.6c0,4.83-1.66,10.75-8.38,10.75s-8.38-5.92-8.38-10.75"/>
+    </g>
+    <g id="cheeks">
+      <ellipse class="cls-5" cx="43.7" cy="108.89" rx="16.76" ry="9.71"/>
+      <ellipse class="cls-5" cx="134.14" cy="108.89" rx="16.76" ry="9.71"/>
+    </g>
+  </g>
+</svg>
