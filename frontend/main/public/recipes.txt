@@ -1,0 +1,19 @@
+Recipe: Chicken Stir Fry
+Ingredients: Chicken, Broccoli, Soy Sauce, Onion, Garlic
+Instructions: Stir fry the chicken with soy sauce, add broccoli and onion, cook until tender. Serve hot.
+
+Recipe: Beef Tacos
+Ingredients: Ground Beef, Tortilla, Tomato, Lettuce, Onion, Cheese
+Instructions: Cook the beef, prepare the tortillas with toppings, and serve with cheese.
+
+Recipe: Vegetable Soup
+Ingredients: Carrot, Broccoli, Onion, Garlic, Cabbage, Tomato
+Instructions: Boil all the vegetables until tender, season with salt and pepper, and serve hot.
+
+Recipe: Egg Salad
+Ingredients: Egg, Mayonnaise, Mustard, Onion, Celery
+Instructions: Boil the eggs, chop them, mix with mayonnaise and mustard, add chopped onion and celery.
+
+Recipe: Grilled Cheese
+Ingredients: Bread, Cheese, Butter
+Instructions: Butter the bread, add cheese, and grill until the cheese is melted.

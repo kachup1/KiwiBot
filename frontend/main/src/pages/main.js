@@ -1,36 +1,66 @@
-// main.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './main.css';
 import { ReactComponent as LiftingGhost } from './lifting_ghost.svg';
-import ApiClient from '../ApiClient';
 
 function Main() {
     const [proteinGoal, setProteinGoal] = useState('');
     const [ingredients, setIngredients] = useState('');
     const navigate = useNavigate();
 
-    const handleGenerate = async () => {
+    // Function to read the local text file and find matching recipes
+    const loadRecipes = async (ingredientList) => {
         try {
-            // Make the API call to generate the recipe
-            const response = await ApiClient.generateRecipe(
-                proteinGoal,
-                ingredients.split("\n").map(item => item.trim())
-            );
+            // Fetch the recipes.txt file from the public folder
+            const response = await fetch('/recipes.txt');
+            const data = await response.text();
 
-            // Check if response is valid and navigate
-            if (response.data && response.data.recipe) {
-                navigate('/results', { state: { recipe: response.data.recipe } });
-            } else {
-                console.error("Invalid response data:", response);
-                alert("Failed to generate a recipe. Please try again.");
-            }
+            // Split the file content into individual recipes
+            const recipeList = data.split('\n\n');  // Assume recipes are separated by two new lines
+
+            // Filter recipes that match the user's ingredients
+            const matchedRecipes = recipeList.filter(recipe => {
+                const ingredientsLine = recipe.split('\n')[1];  // Get the Ingredients line
+                const recipeIngredients = ingredientsLine.replace('Ingredients: ', '')
+                    .split(', ')
+                    .map(ingredient => ingredient.toLowerCase().trim());  // Normalize ingredients to lowercase and trim spaces
+
+                // Check if all user ingredients (also normalized) are in the recipe
+                return ingredientList.every(userIngredient =>
+                    recipeIngredients.some(recipeIngredient =>
+                        recipeIngredient.includes(userIngredient.toLowerCase())
+                    )
+                );
+            });
+
+            return matchedRecipes;
         } catch (error) {
-            console.error("Error generating recipe:", error);
-            alert("There was an error connecting to the server.");
+            console.error('Error reading recipes file:', error);
+            return [];
         }
     };
 
+    const handleGenerate = async () => {
+        const ingredientList = ingredients
+            .split("\n")
+            .map(item => item.trim().toLowerCase())  // Normalize user input to lowercase and trim spaces
+            .filter(item => item);  // Filter out empty items to avoid sending invalid data
+
+        // Check if the ingredient list is empty
+        if (ingredientList.length === 0) {
+            alert("Please enter at least one valid ingredient.");
+            return;
+        }
+
+        // Load and match recipes
+        const matchedRecipes = await loadRecipes(ingredientList);
+
+        if (matchedRecipes.length > 0) {
+            navigate('/results', { state: { recipe: matchedRecipes.join('\n\n') } });
+        } else {
+            alert("No matching recipes found.");
+        }
+    };
 
     return (
         <div className="main-container">
