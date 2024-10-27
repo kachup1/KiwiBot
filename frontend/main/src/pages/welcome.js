@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './welcome.css';
-import { ReactComponent as GhostIcon } from './ghost.svg'; // Assuming the SVG file is named `ghost.svg`
+import { ReactComponent as GhostIcon } from './ghost.svg';
 
 function Welcome() {
     const navigate = useNavigate();

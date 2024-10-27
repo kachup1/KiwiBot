@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import './results.css';
-import { ReactComponent as LiftingGhost } from './lifting_ghost.svg';
+import { ReactComponent as ForkGhost } from './ghost_with_forks.svg';
 
 function Results() {
     const location = useLocation();
@@ -25,7 +25,7 @@ function Results() {
 
     return (
         <div className="results-container">
-            <LiftingGhost className="lifting-ghost" />
+            <ForkGhost className="forkghost" />
             <h1 className="suggestions-title">Kiwi's Suggestions...</h1>
             <div className="recipe-card">
                 <ol className="recipe-list">

@@ -1,3 +1,6 @@
+//This file is in development for future integration of AI API
+
+
 import axios from 'axios';
 
 const API_KEY = 'your_spoonacular_api_key';  // Replace with your Spoonacular API key
