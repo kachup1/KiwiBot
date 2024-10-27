@@ -1,27 +1,14 @@
-// src/ApiClient.js
+// ApiClient.js
 import axios from 'axios';
 
-// Set up an axios instance with base configurations
-const ApiClient = axios.create({
-    baseURL: 'http://10.39.55.21:5000',  // Replace with your Flask server's IP address
-    headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`
-    }
-});
+const API_BASE_URL = "http://127.0.0.1:5000";  // Use your computer’s IP address here
 
-// Example function for generating a recipe
-const generateRecipe = (ingredients, proteinGoal) => {
-    return ApiClient.post('/generate-recipe', {
-        ingredients,
-        proteinGoal
-    });
+const ApiClient = {
+    generateRecipe: (proteinGoal, ingredients) =>
+        axios.post(`${API_BASE_URL}/generate-recipe`, {
+            proteinGoal,
+            ingredients
+        }),
 };
 
-// Another example for testing connection
-const testConnection = () => {
-    return ApiClient.get('/test-connection');
-};
-
-// Export functions or the client itself
-export default { generateRecipe, testConnection };
+export default ApiClient;

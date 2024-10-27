@@ -1,3 +1,4 @@
+// main.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './main.css';
@@ -9,24 +10,27 @@ function Main() {
     const [ingredients, setIngredients] = useState('');
     const navigate = useNavigate();
 
-    const handleProteinGoalChange = (event) => {
-        setProteinGoal(event.target.value);
-    };
+    const handleGenerate = async () => {
+        try {
+            // Make the API call to generate the recipe
+            const response = await ApiClient.generateRecipe(
+                proteinGoal,
+                ingredients.split("\n").map(item => item.trim())
+            );
 
-    const handleIngredientsChange = (event) => {
-        setIngredients(event.target.value);
-    };
-
-    const handleGenerate = () => {
-        ApiClient.backendApi.generateRecipe({ proteinGoal, ingredients: ingredients.split(',') })
-            .then(response => {
-                // Navigate to Results page with the recipe data
+            // Check if response is valid and navigate
+            if (response.data && response.data.recipe) {
                 navigate('/results', { state: { recipe: response.data.recipe } });
-            })
-            .catch(error => {
-                console.error("Failed to generate recipe:", error);
-            });
+            } else {
+                console.error("Invalid response data:", response);
+                alert("Failed to generate a recipe. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error generating recipe:", error);
+            alert("There was an error connecting to the server.");
+        }
     };
+
 
     return (
         <div className="main-container">
@@ -42,16 +46,16 @@ function Main() {
                         id="proteinGoal"
                         placeholder="120"
                         value={proteinGoal}
-                        onChange={handleProteinGoalChange}
+                        onChange={(e) => setProteinGoal(e.target.value)}
                     />
                     <span>g</span>
                 </div>
                 <label htmlFor="ingredients">Enter Your Ingredients:</label>
                 <textarea
                     id="ingredients"
-                    placeholder="Ground Beef&#10;Broccoli&#10;Eggs&#10;Cabbage&#10;Onion..."
+                    placeholder="Ground Beef\nBroccoli\nEggs\nCabbage\nOnion..."
                     value={ingredients}
-                    onChange={handleIngredientsChange}
+                    onChange={(e) => setIngredients(e.target.value)}
                 ></textarea>
                 <button className="generate-button" onClick={handleGenerate}>
                     Generate
